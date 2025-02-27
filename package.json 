@@ -1,13 +1,10 @@
 {
   "name": "com.nielsostman.unitynativevideoencoder",
-  "version": "1.0.0",
   "displayName": "Unity Native Video Encoder",
-  "description": "High-performance video encoding for Unity using WebM and VP8/VP9.",
+  "version": "1.0.0",
   "unity": "2021.3",
-  "dependencies": {},
-  "keywords": ["native", "video", "encoder", "vpx", "webm", "yuv", "libvpx", "libwebm", "libyuv", "vp8", "vp9" ],
-  "author": {
-    "name": "Niels Østman",
-    "email": "contact@nielsostman.com"
-  }
+  "description": "High-performance video encoding for Unity using WebM and VP8/VP9.",
+  "keywords": ["animation"],
+  "category": "Animation",
+  "dependencies": {}
 }
