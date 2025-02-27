@@ -49,11 +49,11 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
     public static class VideoEncoderPlugin {
         private const string LIB_NAME =
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-            "libUnityNativeVideoEncoder";
+            "libUnityNativeVideoEncoder.dll";
 #elif UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
             "libUnityNativeVideoEncoder";
 #else
-            "UnityNativeVideoEncoder"; // Fallback (may need customization)
+            "libUnityNativeVideoEncoder.dll"; // Fallback (may need customization)
 #endif
         
         /// <summary>
