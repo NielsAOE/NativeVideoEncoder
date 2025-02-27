@@ -47,6 +47,15 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
     /// Provides a managed interface to the native video encoder library.
     /// </summary>
     public static class VideoEncoderPlugin {
+        private const string LIB_NAME =
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+            "libUnityNativeVideoEncoder";
+#elif UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+            "libUnityNativeVideoEncoder";
+#else
+            "UnityNativeVideoEncoder"; // Fallback (may need customization)
+#endif
+        
         /// <summary>
         /// Creates a new video encoder instance.
         /// </summary>
@@ -54,7 +63,7 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
         /// An IntPtr handle to the video encoder instance.
         /// This handle must be passed to subsequent API calls.
         /// </returns>
-        [DllImport("UnityNativeVideoEncoder", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(LIB_NAME, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr CreateVideoEncoder();
 
         /// <summary>
@@ -69,7 +78,7 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
         /// <returns>
         /// True if the encoder is successfully initialized; otherwise, false.
         /// </returns>
-        [DllImport("UnityNativeVideoEncoder", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(LIB_NAME, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
         public static extern bool InitializeVideoEncoder(IntPtr handle, ref EncoderConfigC config);
 
@@ -88,7 +97,7 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
         /// <returns>
         /// True if the frame is encoded successfully; otherwise, false.
         /// </returns>
-        [DllImport("UnityNativeVideoEncoder", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(LIB_NAME, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
         public static extern bool EncodeVideoFrame(IntPtr handle, byte[] frameData, int frameIndex);
 
@@ -101,7 +110,7 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
         /// <returns>
         /// True if the encoder finalizes successfully; otherwise, false.
         /// </returns>
-        [DllImport("UnityNativeVideoEncoder", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(LIB_NAME, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.I1)]
         public static extern bool FinalizeVideoEncoder(IntPtr handle);
 
@@ -111,7 +120,7 @@ namespace NielsOstman.NativeVideoRecorder.Encoding {
         /// <param name="handle">
         /// The video encoder handle.
         /// </param>
-        [DllImport("UnityNativeVideoEncoder", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(LIB_NAME, CallingConvention = CallingConvention.Cdecl)]
         public static extern void DestroyVideoEncoder(IntPtr handle);
     }
 }
