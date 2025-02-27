@@ -1,0 +1,14 @@
+{
+    "name": "NielsOstman.NativeVideoRecorder",
+    "rootNamespace": "NielsOstman.NativeVideoRecorder",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
